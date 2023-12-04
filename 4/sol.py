@@ -1,7 +1,4 @@
-from collections import defaultdict
-
 with open('input.txt') as f:
-    total = defaultdict(int)
     count = [1] * 209
     for idx, line in enumerate(f):
         game, nums = line.strip().split(":")
