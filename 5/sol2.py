@@ -24,6 +24,7 @@ with open('input.txt') as f:
     lines = f.read().splitlines()
     seeds = [int(x) for x in lines[0].split(":")[1].strip().split()]
     seed_ranges = [seeds[i:i+2] for i in range(0, len(seeds), 2)]
+    seed_ranges = [(range[0], range[0] + range[1]) for range in seed_ranges]
     print(seed_ranges)
 
     # seed_soil_map = produce_mapping(lines[3:5])
@@ -44,7 +45,7 @@ with open('input.txt') as f:
     # print(seeds, seed_soil_map)
     min_loc = 10**20
     for seed_range in tqdm(seed_ranges):
-        for seed in tqdm(range(seed_range[0], seed_range[1])):
+        for seed in range(seed_range[0], seed_range[1]):
     # for seed in seeds:
             soil = find_mapping(seed, seed_soil_map)
             # print(seed, soil)
