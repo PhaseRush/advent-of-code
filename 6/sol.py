@@ -1,4 +1,5 @@
 import math
+import time
 from typing import List
 
 from tqdm import tqdm
@@ -14,11 +15,14 @@ with open('input.txt') as f:
 
     curr_ways = 0
 
-    for charge_time in tqdm(range(total_time)):
+    start = time.process_time_ns()
+    for charge_time in range(total_time):
         move_time = total_time - charge_time
         speed = charge_time
         dist = speed * move_time
         if dist > record_dist:
             curr_ways += 1
+
+    print((time.process_time_ns() - start)/10e6, " ms")
 
     print(curr_ways)
