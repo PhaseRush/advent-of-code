@@ -78,10 +78,10 @@ with open('input.txt') as f:
 
     hands = [(x.split()[0], int(x.split()[1])) for x in lines]
 
-    print(hands)
+    # print(hands)
 
     ordered = sorted(hands, key=functools.cmp_to_key(compare))
-    print(ordered)
+    # print(ordered)
 
     score = 0
     for x in range(len(ordered)):
