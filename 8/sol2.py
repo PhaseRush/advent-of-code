@@ -16,6 +16,7 @@ with open('input.txt') as f:
         if key.strip().endswith('A'):
             starts.append(key.strip())
 
+
     def find_iters(start):
         iters = 0
         next_pos = start
@@ -33,4 +34,4 @@ with open('input.txt') as f:
     end_iters = [find_iters(x) for x in starts]
     print(math.lcm(*end_iters))
 
-    print((time.process_time_ns() - start) / 10e6, " ms")
+    print((time.process_time_ns() - start) / 10e3, " us")
