@@ -18,7 +18,6 @@ with open('input.txt') as f:
                 all_zeros = False
 
         if all_zeros:
-            # print(seq)
             return seq[-1] + dx[0]
         else:
             return seq[-1] + derive(dx)
