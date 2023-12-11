@@ -22,14 +22,6 @@ valid_dirs = {
     'J': [n, w],
     '7': [w, s],
     'F': [s, e],
-    # '.': []
-}
-
-valid_chars = {
-    n: ['|', '7', 'F'],
-    e: ['-', 'J', '7'],
-    s: ['|', 'J', 'L'],
-    w: ['-', 'F', 'L']
 }
 
 
@@ -48,10 +40,8 @@ def test(curr, goto):
         return None, None
     from_dir = opposite[goto]  # w
     next_dir = valid_dirs[next_char].copy()  # [w, s]
-    try:
-        next_dir.remove(from_dir)  # [s]
-    except:
-        pass
+    next_dir.remove(from_dir)  # [s]
+
     return next_pos, next_dir[0]
 
 
@@ -72,8 +62,9 @@ print(len(path) // 2)
 path_set = set(path)
 start_is_vert = True  # screw it just hard code
 
+# apparently the optimal solution is to use the shoelace formula https://en.wikipedia.org/wiki/Shoelace_formula
+
 area = 0
-area_incl = []
 for y in range(len(lines)):
     odd_parity = False
     for x in range(len(lines[0])):
@@ -82,6 +73,5 @@ for y in range(len(lines)):
                 odd_parity = not odd_parity
         else:
             area += 1 if odd_parity else 0
-            area_incl.append((x, y, get_char((x, y))))
 
 print(area)
