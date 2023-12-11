@@ -32,21 +32,6 @@ def find_empty_rows(orig):
     return empty_idx
 
 
-def p(mat):
-    print('@' * 20)
-    for i in mat:
-        print(''.join(i))
-    print('@' * 20)
-
-
-# def get_galaxy_coords(mat):
-#     coords = []
-#     for y in range(len(mat)):
-#         for x in range(len(mat[0])):
-#             if mat[y][x] == '#':
-#                 coords.append((y, x))
-#     return coords
-
 gys, gxs = remap(lines)
 print("pre-expand galaxies: ")
 for i in range(len(gys)):
@@ -76,12 +61,6 @@ for ex in empty_x:
             gxs[gx_idx] = (gxs[gx_idx][0], gxs[gx_idx][1] + multiplier - 1)
 
 print("modified gxs", gxs)
-
-# expected: [(0, 12), (1, 25), (2, 0), (13, 24), (14, 1), (15, 36), (26, 25), (27, 0), (27, 13)]
-# print("expected: [(0, 12), (1, 25), (2, 0), (13, 24), (14, 1), (15, 36), (26, 25), (27, 0), (27, 13)]")
-# print("actual: ")
-# for i in range(len(gys)):
-#     print(f"({gys[i][1]} {gxs[i][1]}) ", end='')
 
 
 def get_dist(x1, y1, x2, y2):
