@@ -37,7 +37,7 @@ if __name__ == '__main__':
     print(sum(nums))
     nums.clear()
 
-    ## part 2
+    ## part 02
 
     gears = []
     for y in range(Y):

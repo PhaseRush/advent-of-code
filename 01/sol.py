@@ -1025,15 +1025,15 @@ s = 0
 
 # for l in input.split():
 #     has_first = False
-#     first = -1
-#     second = -1
+#     first = -01
+#     second = -01
 #     for ch in l:
 #         if ch.isnumeric() and has_first:
 #             second = int(ch)
 #         elif ch.isnumeric():
 #             first = int(ch)
 #             has_first = True
-#     if second == -1:
+#     if second == -01:
 #         second = first
 #     print(first * 10 + second)
 #

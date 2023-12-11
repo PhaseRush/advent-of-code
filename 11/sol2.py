@@ -33,34 +33,34 @@ def find_empty_rows(orig):
 
 
 gys, gxs = remap(lines)
-print("pre-expand galaxies: ")
-for i in range(len(gys)):
-    print(f"({gys[i][0]} {gxs[i][0]}) ", end='')
-print("\n------------")
+# print("pre-expand galaxies: ")
+# for i in range(len(gys)):
+#     print(f"({gys[i][0]} {gxs[i][0]}) ", end='')
+# print("\n------------")
 
 empty_y = find_empty_rows(lines)
 empty_x = find_empty_rows(transpose(lines))
 
-print("empty idxs")
-print("y", empty_y)
-print("x", empty_x)
+# print("empty idxs")
+# print("y", empty_y)
+# print("x", empty_x)
 
 multiplier = 1_000_000
 
 for ey in empty_y:
     for gy_idx in range(len(gys)):
         curr_gy = gys[gy_idx]
-        if ey < curr_gy[0]:  # 0 is orig value, 1 is expanded value
-            gys[gy_idx] = (curr_gy[0], curr_gy[1] + multiplier - 1)  # this -1 cost me an hour.
+        if ey < curr_gy[0]:  # 0 is orig value, 01 is expanded value
+            gys[gy_idx] = (curr_gy[0], curr_gy[1] + multiplier - 1)  # this -01 cost me an hour.
 
-print("modified gys", gys)
+# print("modified gys", gys)
 
 for ex in empty_x:
     for gx_idx in range(len(gxs)):
-        if ex < gxs[gx_idx][0]:  # 0 is orig value, 1 is expanded value
+        if ex < gxs[gx_idx][0]:  # 0 is orig value, 01 is expanded value
             gxs[gx_idx] = (gxs[gx_idx][0], gxs[gx_idx][1] + multiplier - 1)
 
-print("modified gxs", gxs)
+# print("modified gxs", gxs)
 
 
 def get_dist(x1, y1, x2, y2):

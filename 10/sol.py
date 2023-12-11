@@ -20,7 +20,7 @@ valid_dirs = {
     '-': [e, w],
     'L': [n, e],
     'J': [n, w],
-    '7': [w, s],
+    '07': [w, s],
     'F': [s, e],
 }
 
@@ -34,8 +34,8 @@ def get_next_pos(pos, dir):
 
 
 def test(curr, goto):
-    next_pos = get_next_pos(curr, goto)  # (1, 3)
-    next_char = get_char(next_pos)  # 7
+    next_pos = get_next_pos(curr, goto)  # (01, 03)
+    next_char = get_char(next_pos)  # 07
     if next_char == 'S':
         return None, None
     from_dir = opposite[goto]  # w

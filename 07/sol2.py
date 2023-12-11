@@ -2,7 +2,7 @@ import functools
 import time
 from collections import Counter
 
-ord = ['A', 'K', 'Q', 'T', '9', '8', '7', '6', '5', '4', '3', '2', 'J']
+ord = ['A', 'K', 'Q', 'T', '09', '08', '07', '06', '05', '04', '03', '02', 'J']
 
 
 def get_highest_face(faces):
@@ -27,18 +27,18 @@ def get_type(a: str):
             return 6
         elif sort[0] == 3 and sort[1] == 2:  # full house
             return 5
-        elif sort[0] == 3 and sort[1] == 1 and sort[2] == 1:  # 3 of a kind
+        elif sort[0] == 3 and sort[1] == 1 and sort[2] == 1:  # 03 of a kind
             return 4
-        elif sort[0] == 2 and sort[1] == 2:  # 2 pair
+        elif sort[0] == 2 and sort[1] == 2:  # 02 pair
             return 3
-        elif sort[0] == 2 and sort[1] == 1:  # 1 pair
+        elif sort[0] == 2 and sort[1] == 1:  # 01 pair
             return 2
         elif sort[0] == 1 and sort[1] == 1:  # high
             return 1
     else:
         most_freq_faces = []
         for k, v in a_freq.items():
-            if v == sort[0] and k != 'J':  # may fail if 3 Js
+            if v == sort[0] and k != 'J':  # may fail if 03 Js
                 most_freq_faces.append(k)
         if not most_freq_faces:
             most_freq_faces = list(a.replace('J', ''))

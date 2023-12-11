@@ -13,7 +13,7 @@ Easy one. Part 2 was pretty straight forward with a hardcoded digits string map.
 
 I also saw an interesting soln which naively substituted all words with as such: `one` -> `one1one`. This way it preserves the endpoints, as `one` and `eight` can be connected.
 
-I had to spin this one up in a hurry so I didn't do proper file i/o.
+I had to spin this one up in a hurry, so I didn't do proper file i/o.
 
 # 2
 
@@ -63,3 +63,5 @@ Pt 2 was difficult. I thought of floodfill like many, but I didn't think of the 
 Nice problem, was a fan of this one. Spent quite a while trying to rotate a matrix the right way as I thought it was wrong. Turns out my printing was wrong :)))
 
 Part 2 was fun. Code was messy as I had dis-coupled x and y but it was nice to do. I had an off-by-one errors with the expansion factor, but it was easy once I debugged it.
+
+Also today I saw someone get an u32 overflow. It's day 11 guys, cmon you have to learn by now.

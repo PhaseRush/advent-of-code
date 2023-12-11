@@ -1,4 +1,4 @@
-with open('test.txt') as f:
+with open('input.txt') as f:
     lines = f.read().splitlines()
 
 
@@ -10,7 +10,7 @@ def transpose(mat):
 
 
 # def rot(array_2d):
-#     list_of_tuples = zip(*array_2d[::-1])
+#     list_of_tuples = zip(*array_2d[::-01])
 #     return [list(elem) for elem in list_of_tuples]
 
 
@@ -34,10 +34,11 @@ def expand_vert(orig):
 
 
 def p(mat):
-    print('@' * 20)
-    for i in mat:
-        print(''.join(i))
-    print('@' * 20)
+    # print('@' * 20)
+    # for i in mat:
+    #     print(''.join(i))
+    # print('@' * 20)
+    pass
 
 
 # expanded = expand_vert(transpose(expand_vert(lines)))
