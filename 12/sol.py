@@ -1,6 +1,6 @@
 import functools
-
-import tqdm
+import timeit
+from multiprocessing import Pool
 
 with open('input.txt') as f:
     lines = f.read().splitlines()
@@ -11,7 +11,7 @@ can_begin_run = {'?', '#'}
 cant_begin_run = {'?', '.'}
 
 
-@functools.lru_cache(maxsize=None)
+@functools.cache
 def solve(s, curr_run_idx, remain):
     if curr_run_idx and len(remain) == 0:  # can't make enough choices
         return 0
@@ -43,11 +43,25 @@ def solve(s, curr_run_idx, remain):
     return choices
 
 
-totals = []
+def start(input):
+    return solve(input[0], input[1], input[2])
 
-for line in tqdm.tqdm(lines):
+
+inputs = []
+
+for line in lines:
     unfolded = line[0] + ''.join(['?' + line[0] for _ in range(4)])
-    # print(unfolded)
-    totals.append(solve(unfolded, None, tuple(line[1]) * 5))
+    inputs.append((unfolded, None, tuple(line[1]) * 5))
 
-print(sum(totals))
+
+def f():
+    with Pool() as pool:
+        return sum(pool.map(start, inputs))
+
+
+if __name__ == '__main__':
+    iters = 1
+    x = timeit.timeit(lambda: f(), number=iters)
+    print(f"{x: 0.2f} s")
+
+# print(sum(totals))
