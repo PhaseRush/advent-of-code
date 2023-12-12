@@ -65,3 +65,9 @@ Nice problem, was a fan of this one. Spent quite a while trying to rotate a matr
 Part 2 was fun. Code was messy as I had dis-coupled x and y but it was nice to do. I had an off-by-one errors with the expansion factor, but it was easy once I debugged it.
 
 Also today I saw someone get an u32 overflow. It's day 11 guys, cmon you have to learn by now.
+
+Update: I was challenged to make an optimized version for part 2. I successfully dropped the runtime from about 50ms to 0.6ms, which you can find in the `sol2_2.py` file. Running it with python is about 20ms, and pypy drops it to 0.6ms. Quite a good improvement, I'm happy with that as it's rivaling other people's "optimal" implementations in performance langs.
+
+
+# 12
+

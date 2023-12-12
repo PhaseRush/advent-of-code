@@ -55,4 +55,4 @@ f()
 
 iters = 1000
 x = timeit.timeit(lambda: f(), number=iters)
-print(f"{x} ms")
+print(f"{x: 0.2f} ms")
