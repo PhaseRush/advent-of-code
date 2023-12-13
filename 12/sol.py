@@ -64,4 +64,3 @@ if __name__ == '__main__':
     x = timeit.timeit(lambda: f(), number=iters)
     print(f"{x: 0.2f} s")
 
-# print(sum(totals))

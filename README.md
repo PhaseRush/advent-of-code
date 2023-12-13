@@ -72,3 +72,9 @@ Update: I was challenged to make an optimized version for part 2. I successfully
 # 12
 
 Meh recursive/dp problem. Annoying to code all the cases. Got my best ranking yet though, sub 1k. Today's goat was @cache/@lru_cache. Orig sol was about 2s runtime, with multiprocessing, dropped it down to 250ms. Not bad. (Pypy slowed this down at about 650ms)
+
+
+# 13
+Day 13 suffered with multithreading, which makes sense. Even though this is technically brute force, each pattern is simply too small to justify the overhead. Problem itself was pretty simple but annoying. Meh problem.
+
+
