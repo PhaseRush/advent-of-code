@@ -81,3 +81,5 @@ Day 13 suffered with multithreading, which makes sense. Even though this is tech
 # 14
 
 Day 14 part 1 was really nice and intuitive. Part 2 was supposed to be a easy shift with a loop and cycle detection, but I made a critical bug where my scoring function was refactored and I didn't find the issue for an hour. Costed me a good chunk of time. However, the problem was not difficult and cycles were pretty obvious.
+
+As a followup, I improved the naive shifting function by instead finding the cubes first, then shifting within a cube. That reduces the characteristic quadratic down to linear. After profiling (pypy), dropped from 1.5s to 0.3s overall.
