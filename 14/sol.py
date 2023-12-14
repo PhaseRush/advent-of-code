@@ -1,6 +1,8 @@
 import functools
 import timeit
 
+import util.utils
+
 with open('input.txt') as f:
     lines = [list(x) for x in f.read().splitlines()]
 
@@ -10,20 +12,43 @@ def hash_mat(mat):
     return hid
 
 
-def rotate_matrix(m):
-    rot = zip(*m[::-1])
-    return [list(x) for x in rot]
+def locate_cubes(col):
+    indices = []
+    i = 0
+    while True:
+        try:
+            i = col.index('#', i)
+            indices.append(i)
+            i += 1
+        except ValueError:
+            break
+    return indices
 
 
-# @functools.cache
+def shift_col(col):
+    cube_idxs = [-1] + [i for i, x in enumerate(col) if x == "#"] + [len(col)]
+    # cube_idxs = [-1] + locate_cubes(col) + [len(col)]
+
+    for idx in range(len(cube_idxs) - 1):
+        curr_start = cube_idxs[idx] + 1
+        curr_end = cube_idxs[idx + 1]
+
+        num_round = 0
+        for i in range(curr_start, curr_end):
+            num_round += col[i] == 'O'
+
+        for i in range(curr_start, curr_start + num_round):
+            col[i] = 'O'
+
+        for i in range(curr_start + num_round, curr_end):
+            col[i] = '.'
+
+    return col
+
+
 def shift(mat):
-    for x in range(len(mat[0])):
-        for y_start in range(len(mat)):  # be naive and just shift every possibility
-            for y_curr in range(len(mat)):
-                if y_curr > 0:
-                    if mat[y_curr][x] == 'O' and mat[y_curr - 1][x] == '.':
-                        mat[y_curr - 1][x] = 'O'
-                        mat[y_curr][x] = '.'
+    for y in range(len(mat)):
+        mat[y] = shift_col(mat[y])
     return mat
 
 
@@ -44,24 +69,22 @@ def count_load(shifted):
 
 def f():
     cycles = 1000000000
-    # cycles = 1
-
     cache = {}
 
     curr_idx = 0
-    mat = lines
+    mat = util.utils.rotate_ccw(lines)
     while curr_idx < cycles:
         curr_idx += 1
         for j in range(4):
             mat = shift(mat)
-            mat = rotate_matrix(mat)
+            mat = util.utils.rotate_cw(mat)
         hash_id = hash_mat(mat)
         if hash_id in cache:
             cycle_length = curr_idx - cache[hash_id]
             num_cycles = (cycles - curr_idx) // cycle_length
-            # print(curr_idx, cycle_length)
             curr_idx += num_cycles * cycle_length
         cache[hash_id] = curr_idx
+    mat = util.utils.rotate_cw(mat)
     print(count_load(mat))
 
 
