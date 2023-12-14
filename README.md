@@ -78,3 +78,6 @@ Meh recursive/dp problem. Annoying to code all the cases. Got my best ranking ye
 Day 13 suffered with multithreading, which makes sense. Even though this is technically brute force, each pattern is simply too small to justify the overhead. Problem itself was pretty simple but annoying. Meh problem.
 
 
+# 14
+
+Day 14 part 1 was really nice and intuitive. Part 2 was supposed to be a easy shift with a loop and cycle detection, but I made a critical bug where my scoring function was refactored and I didn't find the issue for an hour. Costed me a good chunk of time. However, the problem was not difficult and cycles were pretty obvious.
