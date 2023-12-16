@@ -88,3 +88,7 @@ As a followup, I improved the naive shifting function by instead finding the cub
 # 15
 
 Day 15 was giga easy. Fell for the `[xxx] * 256` trick in python, costed me a few extra minutes. Caching the hash function does improve performance by about 10% although the entire thing already runs sub ms
+
+# 16
+
+Pretty nice problem, nice and simple. Took me a while for part 1 but part 2 only an additional 4 minutes to brute force.

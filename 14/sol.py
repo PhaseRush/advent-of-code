@@ -17,7 +17,7 @@ def locate_cubes(col):
     i = 0
     while True:
         try:
-            i = col.index('#', i)
+            i = col.dir_index('#', i)
             indices.append(i)
             i += 1
         except ValueError:

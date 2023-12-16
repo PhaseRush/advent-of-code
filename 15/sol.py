@@ -36,9 +36,9 @@ def f():
             box[label] = focus
 
     total = 0
-    for b_id, box in enumerate(lenses):
-        for l_id, (_, focus) in enumerate(box.items()):
-            total += (1 + b_id) * (1 + l_id) * int(focus)
+    for b_id, box in enumerate(lenses, -1):
+        for l_id, (_, focus) in enumerate(box.items(), -1):
+            total += (2 + b_id) * (2 + l_id) * int(focus)
     # print(total)
     return total
 
