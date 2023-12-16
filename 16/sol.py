@@ -1,8 +1,10 @@
 import functools
-import itertools
+import time
+from itertools import chain, product
+import multiprocessing
 import timeit
 from collections import deque
-from multiprocessing import Pool
+from multiprocessing import Pool, cpu_count
 
 with open('input.txt') as f:
     lines = f.read().splitlines()
@@ -114,7 +116,59 @@ def f():
     print(best)
 
 
+
+
+
+def get_all_starts_chunked():
+    # chunk_size = 2 * (X + Y) // cpu_count()
+    chunks = [((y, 0), e) for y in range(Y)]
+    chunks.extend([((y, X - 1), w) for y in range(0, Y)])
+    chunks.extend([((0, x), s) for x in range(X)])
+    chunks.extend([((Y - 1, x), n) for x in range(X)])
+
+    def chunker_list(seq, size):
+        return (seq[i::size] for i in range(size))
+
+    def chunker_1(l, n):
+        """Yield n number of striped chunks from l."""
+        for i in range(0, n):
+            yield l[i::n]
+    return list(chunker_list(chunks, cpu_count() // 2))
+
+
+    # left_right = product(range(0, Y), [0, X])
+    # top_bot = product([0, Y], range(0, X))
+    # return batched(chain(left_right, top_bot), cpu_count)
+
+
+def solve_subsoln(starts):
+    best = -1
+    for start in starts:
+        if start[0] == 0:
+            best = max(best, simulate(start, s))
+        elif start[0] == Y - 1:
+            best = max(best, simulate(start, n))
+
+        if start[1] == 0:
+            best = max(best, simulate(start, e))
+        elif start[1] == X - 1:
+            best = max(best, simulate(start, w))
+
+    return best
+
+
+def solve_sub(starts):
+    return max([simulate(s[0], s[1]) for s in starts])
+
 if __name__ == '__main__':
-    iters = 1
-    x = timeit.timeit(lambda: f(), number=iters)
-    print(f"{x: 0.2f} s")
+    # iters = 1
+    # x = timeit.timeit(lambda: f(), number=iters)
+    # print(f"{x: 0.2f} s")
+
+    start_chunks = get_all_starts_chunked()
+    start = time.perf_counter()
+    with Pool() as p:
+        print(max(p.map(solve_sub, start_chunks)))
+    # f()
+    print((time.perf_counter() - start), " s")
+
