@@ -1,5 +1,8 @@
+import functools
+import itertools
 import timeit
 from collections import deque
+from multiprocessing import Pool
 
 with open('input.txt') as f:
     lines = f.read().splitlines()
@@ -14,16 +17,12 @@ def move(pos, dir):
     return pos[0] + dir[0], pos[1] + dir[1]
 
 
-def dir_index(dir):
-    if dir == n:
-        return 0
-    elif dir == e:
-        return 1
-    elif dir == s:
-        return 2
-    else:
-        return 3
-
+dir_index = {
+    n: 0,
+    e: 1,
+    s: 2,
+    w: 3
+}
 
 choice = {
     '.': [[n], [e], [s], [w]],
@@ -40,9 +39,19 @@ def get(pos):
     return lines[pos[0]][pos[1]]
 
 
+Y = len(lines)
+X = len(lines[0])
+dir_bin = {
+    n: 1,
+    e: 2,
+    s: 4,
+    w: 8
+}
+
+
 def simulate(init_pos, init_dir):
-    visited = set()
-    unique_pos = set()
+    visited = [0] * Y * X
+    count = 0
 
     q = deque([(init_pos, init_dir)])
     while q:
@@ -51,20 +60,42 @@ def simulate(init_pos, init_dir):
         if not curr_char:
             continue
 
-        if (pos, dir) not in visited:
-            visited.add((pos, dir))
-            unique_pos.add(pos)
-            new_dirs = choice[curr_char][dir_index(dir)]
+        if not visited[pos[0] * X + pos[1]]:
+            count += 1
+
+        if not (visited[pos[0] * X + pos[1]] >> dir_index[dir] & 1):
+            visited[pos[0] * X + pos[1]] |= dir_bin[dir]
+            new_dirs = choice[curr_char][dir_index[dir]]
             for new_dir in new_dirs:
                 q.append((move(pos, new_dir), new_dir))
 
-    return len(unique_pos)
+    return count
 
 
 def f():
     best = -1
     for y in range(len(lines)):
+        # for y in [0, Y]:
+        #     for x in range(len(lines[0])):
+        for x in [0, X]:
+            init_pos = (y, x)
+            init_dirs = []
+            if y == 0:
+                init_dirs.append(s)
+            elif y == len(lines) - 1:
+                init_dirs.append(n)
+
+            if x == 0:
+                init_dirs.append(e)
+            elif x == len(lines[0]) - 1:
+                init_dirs.append(w)
+
+            for init_dir in init_dirs:
+                best = max(best, simulate(init_pos, init_dir))
+    # for y in range(len(lines)):
+    for y in [0, Y]:
         for x in range(len(lines[0])):
+            # for x in [0, X]:
             init_pos = (y, x)
             init_dirs = []
             if y == 0:

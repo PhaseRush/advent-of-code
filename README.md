@@ -92,3 +92,5 @@ Day 15 was giga easy. Fell for the `[xxx] * 256` trick in python, costed me a fe
 # 16
 
 Pretty nice problem, nice and simple. Took me a while for part 1 but part 2 only an additional 4 minutes to brute force.
+
+Tried a few optimizations, down to 130ms now. Multithreading needs to be more intelligent than per-start 
