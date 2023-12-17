@@ -9,6 +9,9 @@ from multiprocessing import Pool, cpu_count
 with open('input.txt') as f:
     lines = f.read().splitlines()
 
+Y = len(lines)
+X = len(lines[0])
+
 n = (-1, 0)
 e = (0, 1)
 s = (1, 0)
@@ -34,15 +37,24 @@ choice = {
     '-': [[e, w], [e], [e, w], [w]]
 }
 
+visited_edge = set()
 
-def get(pos):
-    if pos[0] < 0 or pos[0] >= len(lines) or pos[1] < 0 or pos[1] >= len(lines[0]):
+opposite = {
+    n: s,
+    s: n,
+    e: w,
+    w: e
+}
+
+
+def get(pos, dir):
+    if pos[0] < 0 or pos[0] >= Y or pos[1] < 0 or pos[1] >= X:
+        # trying to exit
+        visited_edge.add(move(pos, opposite[dir]))
         return None
     return lines[pos[0]][pos[1]]
 
 
-Y = len(lines)
-X = len(lines[0])
 dir_bin = {
     n: 1,
     e: 2,
@@ -52,13 +64,16 @@ dir_bin = {
 
 
 def simulate(init_pos, init_dir):
+    if init_pos in visited_edge:
+        return -1
+
     visited = [0] * Y * X
     count = 0
 
     q = deque([(init_pos, init_dir)])
     while q:
         pos, dir = q.popleft()
-        curr_char = get(pos)
+        curr_char = get(pos, dir)
         if not curr_char:
             continue
 
@@ -116,9 +131,6 @@ def f():
     print(best)
 
 
-
-
-
 def get_all_starts_chunked():
     # chunk_size = 2 * (X + Y) // cpu_count()
     chunks = [((y, 0), e) for y in range(Y)]
@@ -133,8 +145,8 @@ def get_all_starts_chunked():
         """Yield n number of striped chunks from l."""
         for i in range(0, n):
             yield l[i::n]
-    return list(chunker_list(chunks, cpu_count() // 2))
 
+    return list(chunker_list(chunks, cpu_count() // 2))
 
     # left_right = product(range(0, Y), [0, X])
     # top_bot = product([0, Y], range(0, X))
@@ -160,6 +172,7 @@ def solve_subsoln(starts):
 def solve_sub(starts):
     return max([simulate(s[0], s[1]) for s in starts])
 
+
 if __name__ == '__main__':
     # iters = 1
     # x = timeit.timeit(lambda: f(), number=iters)
@@ -167,8 +180,7 @@ if __name__ == '__main__':
 
     start_chunks = get_all_starts_chunked()
     start = time.perf_counter()
-    with Pool() as p:
-        print(max(p.map(solve_sub, start_chunks)))
-    # f()
+    # with Pool() as p:
+    #     print(max(p.map(solve_sub, start_chunks)))
+    f()
     print((time.perf_counter() - start), " s")
-
