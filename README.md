@@ -117,7 +117,10 @@ Pretty nice problem, nice and simple. Took me a while for part 1 but part 2 only
 
 Tried a few optimizations, down to 130ms now. Multithreading needs to be more intelligent than per-start. I tried to use a total of #cpu chunked lists, but overhead is still too high.
 
-# 17 [299, 262]
+# 17 [299/262]
 
 Insane performance today. Was able to copy paste half the code from yesterday wrt reusing the visited bitmask. Familiar with dijistras and heapq meant this was my best performance yet.
 
+# 18 [2603/999]
+
+Not bad, pretty chill one. Had to pull out the numpy which meant no pypy today. 20s runtime. Not bad overall though, did learn about pick's theorem which is cool.
