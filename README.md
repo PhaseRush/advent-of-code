@@ -124,3 +124,5 @@ Insane performance today. Was able to copy paste half the code from yesterday wr
 # 18 [2603/999]
 
 Not bad, pretty chill one. Had to pull out the numpy which meant no pypy today. 20s runtime. Not bad overall though, did learn about pick's theorem which is cool.
+
+Reimplemented in Java (3.5-4s) for a class I'm involved in.

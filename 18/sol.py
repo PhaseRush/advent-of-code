@@ -1,4 +1,6 @@
 import timeit
+from collections import defaultdict
+
 import numpy as np
 
 with open('input.txt') as f:
@@ -33,6 +35,8 @@ def move(pos, dir, amount):
 def f():
     pos = (0, 0)
     vertices = {(0, 0)}
+    max_num = 0
+    # vertices = defaultdict(set)
     xs = []
     ys = []
 
@@ -45,12 +49,20 @@ def f():
         for i in range(amount + 1):
             vertices.add((pos[0] + i * dir[0], pos[1] + i * dir[1]))
         pos = (pos[0] + amount * dir[0], pos[1] + amount * dir[1])
+        max_num = max(max_num, pos[0], pos[1])
         xs.append(pos[0])
         ys.append(pos[1])
 
+    print(max_num, len(vertices))
     area = PolyArea(xs, ys)
+    print(f"Area: {area}")
     b = len(vertices)
-    print((area + 1 - b // 2) + b)
+    b2 = b // 2
+    a1 = area + 1
+    a2 = a1 - b2
+    ans = a2 + b
+    print(ans)
+    # print((area + 1 - b2) + b)
 
 
 if __name__ == '__main__':
