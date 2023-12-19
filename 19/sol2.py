@@ -43,16 +43,16 @@ def recurse(wf, ranges):
         if isinstance(check, tuple):
             next_wf = check[0]
             curr_param = check[1]
-            test2 = check[2]
+            filter_check = check[2]
 
             for param, range in ranges.items():
                 if param == curr_param:
-                    filtered = list(filter(test2, range))
+                    filtered = list(filter(filter_check, range))
                     if len(filtered):
                         new_ranges = ranges.copy()
                         new_ranges[param] = filtered
                         count += recurse(next_wf, new_ranges)
-                    ranges[param] = list(x for x in range if not test2(x))
+                    ranges[param] = list(x for x in range if not filter_check(x))
         else:
             count += recurse(check, ranges)
 
