@@ -115,20 +115,30 @@ function does improve performance by about 10% although the entire thing already
 
 Pretty nice problem, nice and simple. Took me a while for part 1 but part 2 only an additional 4 minutes to brute force.
 
-Tried a few optimizations, down to 130ms now. Multithreading needs to be more intelligent than per-start. I tried to use a total of #cpu chunked lists, but overhead is still too high.
+Tried a few optimizations, down to 130ms now. Multithreading needs to be more intelligent than per-start. I tried to use
+a total of #cpu chunked lists, but overhead is still too high.
 
 # 17 [299/262]
 
-Insane performance today. Was able to copy paste half the code from yesterday wrt reusing the visited bitmask. Familiar with dijistras and heapq meant this was my best performance yet.
+Insane performance today. Was able to copy paste half the code from yesterday wrt reusing the visited bitmask. Familiar
+with dijistras and heapq meant this was my best performance yet.
 
 # 18 [2603/999]
 
-Not bad, pretty chill one. Had to pull out the numpy which meant no pypy today. 20s runtime. Not bad overall though, did learn about pick's theorem which is cool.
+Not bad, pretty chill one. Had to pull out the numpy which meant no pypy today. 20s runtime. Not bad overall though, did
+learn about pick's theorem which is cool.
 
 Reimplemented in Java (3.5-4s) for a class I'm involved in.
 
 # 19 [2739/1503]
 
-Part 2 was actually a bit hard for me. I had to rewrite a lot of things and I misread initially. Quite a few off-by-1s, but eventually got it.
+Part 2 was actually a bit hard for me. I had to rewrite a lot of things and I misread initially. Quite a few off-by-1s,
+but eventually got it.
 
 Runtime sitting at 50ms, I'm quite happy with that.
+
+# 20 [4561/2602]
+
+Part 2 was quite hard, I got quite a few wrong answers before getting it right since there was no test output to try.
+Not a bad problem, but was a bit annoying.
+
