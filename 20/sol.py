@@ -53,8 +53,9 @@ def f():
                     if curr_module not in cycles:
                         cycles[curr_module] = cycle
                         if len(cycles) == len(sources):  # should be 4
-                            print(cycles)
+                            # print(cycles)
                             print(functools.reduce(math.lcm, cycles.values()), " should be 225386464601017")
+                            # return functools.reduce(math.lcm, cycles.values())
                             return
 
                 curr_details = modules.get(curr_module)

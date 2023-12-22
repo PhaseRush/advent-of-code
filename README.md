@@ -142,3 +142,11 @@ Runtime sitting at 50ms, I'm quite happy with that.
 Part 2 was quite hard, I got quite a few wrong answers before getting it right since there was no test output to try.
 Not a bad problem, but was a bit annoying.
 
+# 21 [3503/1432]
+
+Today's day 2 was hard, I was discussing ideas with a friend before coming to the idea of using a quadratic. Used
+Wolfram Alpha to fit the curve to check the answer.
+
+# 22 [963/523]
+
+Quite a challenging one, I had to get a hint again. Was fun though, saw a minecraft simulation. Brute force worked just fine for this small input size (10x10 grid, ~100 bricks)
