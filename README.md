@@ -150,3 +150,7 @@ Wolfram Alpha to fit the curve to check the answer.
 # 22 [963/523]
 
 Quite a challenging one, I had to get a hint again. Was fun though, saw a minecraft simulation. Brute force worked just fine for this small input size (10x10 grid, ~100 bricks)
+
+# 23 [3672/1871]
+
+Saw a solution that used edge compression for part 2, which was really smart. Without it my soln took way too long. With the compression its 5.5s
