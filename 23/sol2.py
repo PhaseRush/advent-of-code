@@ -48,6 +48,7 @@ with open('input.txt') as f:
             break
 
 best = 0
+print(len(graph))
 
 
 def dfs(curr, path, curr_dist):
