@@ -4,6 +4,7 @@ from collections import defaultdict
 import networkx as nx
 
 with open('input.txt') as f:
+
     lines = [line.split(": ") for line in f.read().splitlines()]
 
     G = nx.Graph()
