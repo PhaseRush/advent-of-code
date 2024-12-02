@@ -13,11 +13,13 @@ def f():
         a.append(int(sp[0]))
         b.append(int(sp[1]))
 
+    a.sort()
+    b.sort()
+
+    ans1 = sum(abs(a[i] - b[i]) for i in range(len(a)))
     bc = collections.Counter(b)
-    ans = 0
-    for p in a:
-        ans += p * bc[p]
-    return ans
+    ans2 = sum(ai * bc[ai] for ai in a)
+    return ans1, ans2
 
 
 if __name__ == '__main__':
