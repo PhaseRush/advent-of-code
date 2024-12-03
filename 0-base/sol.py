@@ -1,6 +1,6 @@
 import timeit
 
-with open('input') as f:
+with open('input.txt') as f:
     lines = f.read().splitlines()
 
 
