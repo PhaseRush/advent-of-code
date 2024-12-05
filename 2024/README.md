@@ -18,3 +18,7 @@ matching which I might do as a showcase
 # Day 4: 67614/60536
 
 Started during lunch the day after. Had to adjust solution between p1 and 2. I'm happy with my p2 solution since i didn't run into any bugs while implementing it. Still think I could've gone with my original idea with using a set of 3x3 convolutional kernels to scan through the grid, but this will do for today.
+
+# Day 5: 6119/4007
+
+Was a toposort problem but I didn't feel like doing anything smart. Keep swapping until it's correct!
