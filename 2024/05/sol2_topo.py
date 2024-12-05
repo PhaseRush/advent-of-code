@@ -43,6 +43,6 @@ def f():
 
 
 if __name__ == '__main__':
-    iters = 1
+    iters = 1000
     x = timeit.timeit(lambda: f(), number=iters)
     print(f"{x / iters: 0.2f} s")
