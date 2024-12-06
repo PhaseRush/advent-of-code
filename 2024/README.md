@@ -23,7 +23,7 @@ convolutional kernels to scan through the grid, but this will do for today.
 
 # Day 5: 6119/4007
 
-Was a toposort problem but I didn't feel like doing anything smart. Keep swapping until it's correct!
+Was a toposort problem, but I didn't feel like doing anything smart. Keep swapping until it's correct!
 Ended up doing some cool benchmarking to determine that toposort would actually be substantially slower than the brute
 force I took (in terms of runtime and impl time)
 

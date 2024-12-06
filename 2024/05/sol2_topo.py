@@ -20,14 +20,6 @@ with open('input.txt') as f:
         edges.add((a, b))
 
 
-def check_row(nums):
-    for i in range(len(nums)):
-        for j in range(0, i):
-            if nums[i] not in G_pre[nums[j]]:
-                return False
-    return True
-
-
 def f():
     s = 0
 
