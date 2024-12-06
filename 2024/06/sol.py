@@ -60,13 +60,18 @@ def solve2(y_ob, x_ob):
     return False
 
 
+def wrapper(*subset):
+    return sum([solve2(a, b) for a, b in subset])
+
+
 def f():
-    # p2 = sum(solve2(yi, xi) for yi in tqdm(range(Y)) for xi in range(X))
-    # print(p2)
-    # return p2
+    subsets = []
+    for y in range(Y):
+        subsets.append([(y, xi) for xi in range(X)])
     with Pool() as p:
-        s = sum(p.starmap(solve2, itertools.product(range(Y), range(X))))
+        s = sum(p.starmap(wrapper, subsets))
         print(s)
+
 
 if __name__ == '__main__':
     iters = 1
