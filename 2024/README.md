@@ -35,7 +35,11 @@ Times are all in ms/iteration
 | Python 3.12    | 1.8         | 20                  |
 | pypy 3.13      | 200         | 40                  |
 
-# Day 6: 2824/2166 
+# Day 6: 2824/2166
+
 pretty nice problem, just brute force it as per usual.
 
 Played around with multiprocessing after the fact and brought the performance down quite nicely to about ~1-2 s.
+
+# Day 7: 8219/6687
+Second part just required a very small tweak to the first so it was fine. Nice and simple
