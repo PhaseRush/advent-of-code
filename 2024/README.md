@@ -58,4 +58,5 @@ Dumb bug on part 2, made a meh assumption and i had a bad conditional breakpoint
 
 Pretty standard BFS. Most algo oriented folks instantly knew what p2 was after reading p1
 
-
+# Day 11: 8205/3629 
+Python strikes again
