@@ -37,7 +37,7 @@ def iter(curr):
 
 def f():
     res = nums
-    for i in tqdm(range(75)):
+    for i in tqdm(range(25)):
         res = iter(res)
         print(i, len(res))
     print(len(res))
