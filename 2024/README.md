@@ -58,8 +58,14 @@ Dumb bug on part 2, made a meh assumption and i had a bad conditional breakpoint
 
 Pretty standard BFS. Most algo oriented folks instantly knew what p2 was after reading p1
 
-# Day 11: 8205/3629 
+# Day 11: 8205/3629
+
 Python strikes again
 
 # Day 12: 4190/2796
-P2 was more interesting, lots of ways to solve it. By the end, I thought about using disjoint set which would have been cool
+
+P2 was more interesting, lots of ways to solve it. By the end, I thought about using disjoint set which would have been
+cool
+
+# Day 13: 33852/28963
+interesting math
