@@ -68,4 +68,10 @@ P2 was more interesting, lots of ways to solve it. By the end, I thought about u
 cool
 
 # Day 13: 33852/28963
+
 interesting math
+
+# Day 14: 29299/25710
+
+intuition that it must be the min safety score was correct. But I was off by one.
+
