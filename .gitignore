@@ -1,4 +1,6 @@
 .idea/*
 venv/*
 input.txt
+input
+**/__pycache__/*
 cute_catgirls_dont_share/*
