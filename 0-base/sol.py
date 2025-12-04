@@ -2,7 +2,7 @@ import timeit
 
 with open('test.txt') as f:
     lines = f.read().splitlines()
-    print(lines)
+    # lines = [list(row) for row in lines]
 
 
 def f():
