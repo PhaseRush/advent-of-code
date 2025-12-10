@@ -2,3 +2,5 @@ tqdm==4.66.1
 numpy==1.26.2
 euclid==1.2
 z3-solver==4.12.4.0
+numba==0.63.1
+black==25.12.0
